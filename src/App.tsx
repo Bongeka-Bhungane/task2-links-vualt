@@ -1,5 +1,5 @@
+
 import './App.css'
-import Text from './components/text'
 import Header from './components/header';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <Header />
+      
     </>
   );
 }
