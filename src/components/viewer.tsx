@@ -11,7 +11,7 @@ interface CardItem {
 }
 
 export default function Viewer() {
-  // State holding 2 objects
+  
   const [data] = useState<CardItem[]>([
     {
       title: "Google",
