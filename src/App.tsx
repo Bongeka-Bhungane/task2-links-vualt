@@ -1,15 +1,18 @@
 
 import './App.css'
 import Header from './components/header';
-import Button from './components/button';
+import Form from './components/form';
 
 function App() {
 
   return (
     <>
       <Header />
-      <Button name="save" color="#3FF32F" className="btn" />
-      <Button name="🗑️" color="red" className="button" />
+      
+      {/* <Button color="red" className="button" icon={<FaTrash />} />
+      <Button color="red" className="button" icon={<FaEdit />} />
+      <Button color="red" className="button" icon={<FaPlus />} /> */}
+      <Form />
     </>
   );
 }
