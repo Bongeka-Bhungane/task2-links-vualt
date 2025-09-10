@@ -243,3 +243,78 @@ body,
 .footer-text {
   color: #000000;
 }
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .search-input-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 20px;
+  }
+
+  .form-container {
+    width: 90%;
+    height: auto;
+  }
+
+  .card-container {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;   
+    height: auto;
+  }
+
+  .square-button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .button-container .button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .footer {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .footer-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+  }
+
+  .footer-text {
+    margin-top: 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 900px) {
+  .form-container {
+    width: 70%;
+  }
+
+  .card {
+    width: 45%; 
+  }
+}
