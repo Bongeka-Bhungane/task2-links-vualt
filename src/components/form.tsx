@@ -1,5 +1,4 @@
 import React from 'react'
-// import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 import Button from './button'
 
 export default function Form() {
