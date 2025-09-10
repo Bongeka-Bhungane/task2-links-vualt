@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "./button";
-import { FaTrash, FaEdit } from "react-icons/fa";
+import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 
 // Interface: object with 4 strings
 interface CardItem {
@@ -53,13 +53,13 @@ export default function Viewer() {
 
           <div className="button-container">
             <Button
-              color="black"
+              color="#ffffff"
               backgroundColor="red"
               className="square-button"
               icon={<FaTrash />}
             />
             <Button
-              color="#ffffff"
+              color="#000000"
               backgroundColor="#89F3FF"
               className="square-button"
               icon={<FaEdit />}
@@ -67,6 +67,14 @@ export default function Viewer() {
           </div>
         </div>
       ))}
+      <div className="button-container">
+        <Button
+          color="#000000"
+          backgroundColor="#C5C6C7"
+          className="button"
+          icon={<FaPlus />}
+        />
+      </div>
     </div>
   );
 }
