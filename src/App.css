@@ -104,9 +104,26 @@ body,
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.square-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.square-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
 .form-container{
-  width: 45%;
-  height: 45%;
+  width: 50%;
+  height: 90%;
   background-color: #818d92;
   padding: 2%;
   border: #000000;
@@ -115,6 +132,7 @@ body,
   flex-direction: column;
   justify-content: space-between;
   border-radius: 1%;
+  border: 1px solid green;
 }
 
 .form-container label {
@@ -137,36 +155,37 @@ body,
   box-shadow: 0 0 4px rgba(63, 243, 47, 0.6);
 }
 
-/* .viewer-card{
-  width: 45%;
-  height: 50vh;
-  background-color: white;
-  padding: 2%;
-  border: #000000;
-  box-shadow: 3px 3px 7px rgba(126, 124, 124, 0.3);
+.card-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 1%;
-} */
-
-.viewer-card {
-  display: flex;
-  gap: 20px;           /* space between cards */
-  flex-wrap: wrap;     /* cards wrap on small screens */
+  gap: 100px; 
+  flex-wrap: wrap;    
   margin: 20px;
 }
 
 .card {
-  flex: 1 1 200px;     /* responsive width */
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
-  background: #e2e3e4;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 30%;
+  height: 20%;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(76, 76, 77, 0.3);
+  grid-template-columns: auto auto auto;
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-4px); /* subtle lift on hover */
+  transform: translateY(-4px); 
+}
+
+.card-content{
+  display: flex;
+  gap: 10px; 
+  margin-bottom: 16px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px; 
+  padding: 2%;
 }
