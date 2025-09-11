@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Button from "./button";
 import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
+import Form from "./form";
+import Model from "react-modal";
 
 // Interface: object with 4 strings
 interface CardItem {
@@ -12,6 +14,7 @@ interface CardItem {
 
 export default function Viewer() {
   const [showForm, setShowForm] = useState(false);
+  const [visible, setvisible] = useState(false);
   
   const [data] = useState<CardItem[]>([
     {
@@ -74,7 +77,23 @@ export default function Viewer() {
           backgroundColor="#C5C6C7"
           className="button"
           icon={<FaPlus />}
+          onClick={() => setvisible(true)}
         />
+        <Model
+          isOpen={visible}
+          onRequestClose={() => setvisible(false)}
+          style={{
+            overlay: {
+              background: "black",
+            },
+            content: {
+              width: "50%",
+              height: "50%",
+            },
+          }}
+        >
+          <Form />
+        </Model>
       </div>
     </div>
   );
