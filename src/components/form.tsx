@@ -39,12 +39,6 @@ export default function Form() {
 
   // handle save
   const handleSave = () => {
-    // validate required fields
-    if (!formData.name || !formData.url || !formData.description) {
-      alert("Please fill in all required fields ❌");
-      return;
-    }
-
     // get existing data from localStorage
     const existing = JSON.parse(localStorage.getItem("links") || "[]");
     // add new entry
