@@ -11,6 +11,7 @@ interface CardItem {
 }
 
 export default function Viewer() {
+  const [showForm, setShowForm] = useState(false);
   
   const [data] = useState<CardItem[]>([
     {
