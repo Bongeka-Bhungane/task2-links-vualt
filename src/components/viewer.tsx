@@ -17,24 +17,24 @@ export default function Viewer() {
   const [visible, setvisible] = useState(false);
   
   const [data] = useState<CardItem[]>([
-    {
-      title: "Google",
-      url: "https://www.google.com",
-      description: "Search engine giant",
-      tag: "Search",
-    },
-    {
-      title: "YouTube",
-      url: "https://www.youtube.com",
-      description: "Video sharing platform",
-      tag: "Entertainment",
-    },
-    {
-      title: "YouTube",
-      url: "https://www.youtube.com",
-      description: "Video sharing platform",
-      tag: "Entertainment",
-    },
+    // {
+    //   title: "Google",
+    //   url: "https://www.google.com",
+    //   description: "Search engine giant",
+    //   tag: "Search",
+    // },
+    // {
+    //   title: "YouTube",
+    //   url: "https://www.youtube.com",
+    //   description: "Video sharing platform",
+    //   tag: "Entertainment",
+    // },
+    // {
+    //   title: "YouTube",
+    //   url: "https://www.youtube.com",
+    //   description: "Video sharing platform",
+    //   tag: "Entertainment",
+    // },
      
   ]);
 
