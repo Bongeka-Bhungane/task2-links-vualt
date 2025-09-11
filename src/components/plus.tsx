@@ -8,7 +8,16 @@ export default function Plus() {
   return (
     <div>
       <button onClick={() => setvisible(true)}>open modal</button>
-      <Model isOpen={visible}>
+      <Model isOpen={visible} onRequestClose={() => setvisible(false)}
+        style={{
+            overlay:{
+                background: "black"
+            },
+            content:{
+                width: "50%",
+                height: "50%",
+            }
+        }}>
         <Form />
         <button onClick={() => setvisible(false)}>Back</button>
       </Model>
