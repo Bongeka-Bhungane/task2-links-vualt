@@ -1,3 +1,5 @@
+<img src="https://socialify.git.ci/Bongeka-Bhungane/task2-links-vualt/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="task2-links-vualt" width="640" height="320" />
+
 # Link Keeper — MVP
 
 > A simple, responsive React app for saving, editing, searching and organising your favourite links using **localStorage** as the persistence layer.
@@ -38,7 +40,7 @@ This project is intended as a proof-of-concept: localStorage is used so the app 
 
 ## 🚀 Getting started — installation commands
 
-Below are the commands you can run to create the project, install dependencies and run it locally.  
+Below are the commands I ran to create the project, install dependencies and run it locally.  
 Choose the template (JavaScript or TypeScript) you prefer.
 
 ### Create the project (Vite)
@@ -52,6 +54,9 @@ npm create vite@latest
 - cd file name
 - npm install 
 - npm run dev
+- npm install react-icons --save (react icons)
+- npm install --save react-modal (model package)
+```
 
 --- 
 ### Key implementation notes
@@ -63,6 +68,7 @@ npm create vite@latest
   description: "Resources for web developers",
   tags: ["docs", "web", "reference"]
 }
+```
 
 --- 
 ### 🧩 Evaluation mapping
@@ -88,3 +94,4 @@ npm create vite@latest
 ---
 ### figma link:
 - https://www.figma.com/design/KAA24s86XDIIjLSNbjzOCv/links-vault-moodboard?node-id=0-1&t=uZwh9eEGq66IVTuI-1
+
