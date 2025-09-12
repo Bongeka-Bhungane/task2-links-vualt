@@ -57,12 +57,11 @@ export default function Form({ initialData, onSave }: FormProps) {
 
   const handleSave = () => {
     if (!formData.name || !formData.url || !formData.description) {
-      alert("Please fill in all required fields ❌");
+      alert("Please fill in all required fields!!");
       return;
     }
     onSave(formData);
 
-    // reset only if adding new
     if (!initialData) {
       setFormData({ name: "", url: "", description: "", tag: "" });
     }
@@ -111,7 +110,8 @@ export default function Form({ initialData, onSave }: FormProps) {
 
       <Button
         name={initialData ? "Update" : "Save"}
-        color="#3FF32F"
+        color="#000000"
+        backgroundColor="#3FF32F"
         className="btn"
         onClick={handleSave}
       />

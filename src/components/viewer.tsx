@@ -106,7 +106,7 @@ export default function Viewer() {
           onRequestClose={() => setVisible(false)}
           style={{
             overlay: {
-              background: "rgba(0,0,0,0.5)",
+              background: "#818D92",
             },
             content: {
               width: "50%",
@@ -118,13 +118,6 @@ export default function Viewer() {
           <Form
             initialData={editIndex !== null ? data[editIndex] : undefined}
             onSave={handleSave}
-          />
-          <Button
-            name="Close"
-            color="#fff"
-            backgroundColor="gray"
-            className="btn"
-            onClick={() => setVisible(false)}
           />
         </Model>
       </div>
