@@ -46,8 +46,11 @@ export default function Viewer() {
       updated = [...data];
       updated[editIndex] = formData;
       setEditIndex(null);
+      alert("successfully updated link");
+      
     } else {
       updated = [...data, formData];
+      alert("successfully saved link");
     }
     saveToStorage(updated);
     setVisible(false)

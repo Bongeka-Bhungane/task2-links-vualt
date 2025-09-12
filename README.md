@@ -9,6 +9,7 @@
 ## 📌 Project overview
 
 **Link Keeper** is a minimal viable product (MVP) that lets users save bookmarks (links) with a title, URL, description and optional tags.  
+
 The app demonstrates core front-end concepts taught in Lesson 2: arrays & array methods, objects, React components, state & props, hooks (useState, useEffect), JSON methods and browser `localStorage` for persistence.
 
 The goal is a user-friendly, accessible UI (desktop and mobile) built with plain CSS and media queries (no third-party CSS frameworks).  
@@ -59,18 +60,6 @@ npm create vite@latest
 ```
 
 --- 
-### Key implementation notes
-* State & data model: store bookmarks as an array of objects. Example object:
-``` js
-{
-  title: "MDN Web Docs",
-  url: "https://developer.mozilla.org/",
-  description: "Resources for web developers",
-  tags: ["docs", "web", "reference"]
-}
-```
-
---- 
 ### 🧩 Evaluation mapping
 
 - User-friendliness & design: simple, clear layout with responsive breakpoints.
@@ -94,4 +83,3 @@ npm create vite@latest
 ---
 ### figma link:
 - https://www.figma.com/design/KAA24s86XDIIjLSNbjzOCv/links-vault-moodboard?node-id=0-1&t=uZwh9eEGq66IVTuI-1
-
