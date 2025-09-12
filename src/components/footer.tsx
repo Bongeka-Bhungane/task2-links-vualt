@@ -5,9 +5,15 @@ export default function Footer() {
    return (
      <div className="footer">
        <div className="footer-icons">
-         <FaFacebook />
-         <FaTwitter />
-         <FaInstagram />
+         <button className="footer-button">
+           <FaFacebook />
+         </button>
+         <button className="footer-button">
+           <FaTwitter />
+         </button>
+         <button className="footer-button">
+           <FaInstagram />
+         </button>
        </div>
        <p className="footer-text">@copy right 2025</p>
        <p className="footer-text">Bongeka Bhungane</p>
