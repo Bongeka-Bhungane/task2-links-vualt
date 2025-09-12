@@ -17,10 +17,25 @@
 //   );
 // }
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./button";
 
-export default function Form() {
+interface FormProps {
+  initialData?: {
+    name: string;
+    url: string;
+    description: string;
+    tag: string;
+  };
+  onSave: (data: {
+    name: string;
+    url: string;
+    description: string;
+    tag: string;
+  }) => void;
+}
+
+export default function Form({ initialData, onSave }: FormProps) {
   const [formData, setFormData] = useState({
     name: "",
     url: "",
@@ -28,33 +43,29 @@ export default function Form() {
     tag: "",
   });
 
-  // handle input change
+  // If editing, preload data
+  useEffect(() => {
+    if (initialData) {
+      setFormData(initialData);
+    }
+  }, [initialData]);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // handle save
   const handleSave = () => {
-    // get existing data from localStorage
-    const existing = JSON.parse(localStorage.getItem("links") || "[]");
-    // add new entry
-    const updated = [...existing, formData];
-    // save back to localStorage
-    localStorage.setItem("links", JSON.stringify(updated));
+    if (!formData.name || !formData.url || !formData.description) {
+      alert("Please fill in all required fields ❌");
+      return;
+    }
+    onSave(formData);
 
-    // reset form
-    setFormData({
-      name: "",
-      url: "",
-      description: "",
-      tag: "",
-    });
-
-    alert("Saved to localStorage ✅");
+    // reset only if adding new
+    if (!initialData) {
+      setFormData({ name: "", url: "", description: "", tag: "" });
+    }
   };
 
   return (
@@ -63,9 +74,9 @@ export default function Form() {
       <input
         type="text"
         name="name"
-        placeholder="enter the link name..."
         value={formData.name}
         onChange={handleChange}
+        placeholder="Enter the link name..."
         required
       />
 
@@ -73,9 +84,9 @@ export default function Form() {
       <input
         type="text"
         name="url"
-        placeholder="enter the link url..."
         value={formData.url}
         onChange={handleChange}
+        placeholder="Enter the link url..."
         required
       />
 
@@ -83,9 +94,9 @@ export default function Form() {
       <input
         type="text"
         name="description"
-        placeholder="enter the link description..."
         value={formData.description}
         onChange={handleChange}
+        placeholder="Enter the link description..."
         required
       />
 
@@ -93,13 +104,13 @@ export default function Form() {
       <input
         type="text"
         name="tag"
-        placeholder="enter the link tag..."
         value={formData.tag}
         onChange={handleChange}
+        placeholder="Enter the link tag..."
       />
 
       <Button
-        name="save"
+        name={initialData ? "Update" : "Save"}
         color="#3FF32F"
         className="btn"
         onClick={handleSave}
@@ -107,3 +118,4 @@ export default function Form() {
     </div>
   );
 }
+

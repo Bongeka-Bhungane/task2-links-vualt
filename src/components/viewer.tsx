@@ -4,7 +4,6 @@ import { FaTrash, FaEdit, FaPlus } from "react-icons/fa";
 import Form from "./form";
 import Model from "react-modal";
 
-// Interface: object with 4 strings
 interface CardItem {
   name: string;
   url: string;
@@ -15,40 +14,44 @@ interface CardItem {
 export default function Viewer() {
   const [visible, setVisible] = useState(false);
   const [data, setData] = useState<CardItem[]>([]);
+  const [editIndex, setEditIndex] = useState<number | null>(null);
 
-  // Load data from localStorage when component mounts
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("links") || "[]");
     setData(stored);
-  }, [visible]); // refresh whenever modal closes/opens
+  }, [visible]); 
 
-  // Delete item
+   const saveToStorage = (newData: CardItem[]) => {
+     setData(newData);
+     localStorage.setItem("links", JSON.stringify(newData));
+   };
+
   const handleDelete = (index: number) => {
-    if (window.confirm("Are you sure you want to delete this link?")) {
-      setData(data.filter((_, i) => i !== index));
-      alert("Link deleted successfully!");
+    if (window.confirm("are you sure you want to delete this link?")){
+      const updated = data.filter((_, i) => i !== index);
+    setData(updated);
+    localStorage.setItem("links", JSON.stringify(updated));
+    alert("Link deleted successfully!");
     }
   };
 
-  // Edit item
   const handleEdit = (index: number) => {
     setEditIndex(index);
     setVisible(true);
-  };
+  }
 
-  // Save (new or edited)
-  const handleSave = (formData: CardItem) => {
+  const handleSave = (formData: cardItem) => {
     let updated: CardItem[];
     if (editIndex !== null) {
       updated = [...data];
-      updated[editIndex] = formData; // replace the item
+      updated[editIndex] = formData;
       setEditIndex(null);
     } else {
-      updated = [...data, formData]; // add new item
+      updated = [...data, formData];
     }
     saveToStorage(updated);
-    setVisible(false);
-  };
+    setVisible(false)
+  }
 
   return (
     <div className="card-container">
@@ -83,13 +86,13 @@ export default function Viewer() {
                 backgroundColor="#89F3FF"
                 className="square-button"
                 icon={<FaEdit />}
+                onClick={() => handleEdit(index)}
               />
             </div>
           </div>
         ))
       )}
 
-      {/* Add new item */}
       <div className="button-container">
         <Button
           color="#000000"
@@ -112,7 +115,10 @@ export default function Viewer() {
             },
           }}
         >
-          <Form />
+          <Form
+            initialData={editIndex !== null ? data[editIndex] : undefined}
+            onSave={handleSave}
+          />
           <Button
             name="Close"
             color="#fff"
