@@ -53,6 +53,7 @@ npm create vite@latest
 - npm install 
 - npm run dev
 
+--- 
 ### Key implementation notes
 * State & data model: store bookmarks as an array of objects. Example object:
 ``` js
@@ -63,6 +64,7 @@ npm create vite@latest
   tags: ["docs", "web", "reference"]
 }
 
+--- 
 ### 🧩 Evaluation mapping
 
 - User-friendliness & design: simple, clear layout with responsive breakpoints.
@@ -74,3 +76,15 @@ npm create vite@latest
 - Responsiveness: media queries for 320px, 480px, 768px, 1024px, 1200px.
 
 - Notifications: UI feedback when deleting.
+
+--- 
+### how to clone 
+- co go vs code 
+- click on "clone a git repository"
+- past this link on the input bar that pops ub at the top (https://github.com/Bongeka-Bhungane/task2-links-vualt)
+- press enter
+- open the file
+
+---
+### figma link:
+- https://www.figma.com/design/KAA24s86XDIIjLSNbjzOCv/links-vault-moodboard?node-id=0-1&t=uZwh9eEGq66IVTuI-1
