@@ -40,7 +40,7 @@ export default function Viewer() {
     setVisible(true);
   }
 
-  const handleSave = (formData: cardItem) => {
+  const handleSave = (formData: CardItem) => {
     let updated: CardItem[];
     if (editIndex !== null) {
       updated = [...data];

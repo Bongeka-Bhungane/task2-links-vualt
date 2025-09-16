@@ -35,7 +35,7 @@ export default function Search() {
         item.tag.toLowerCase().includes(lower)
     );
     setFiltered(results);
-  }, [query, links]);
+  }, [query]);
 
   return (
     <div className="search-wrapper">
