@@ -50,6 +50,10 @@ Choose the template (JavaScript or TypeScript) you prefer.
 
 ```bash
 # create a new Vite + React + TypeScript project
+
+You can follow these steps using **any terminal** of your choice —  
+such as **Command Prompt**, **PowerShell**, **Windows Terminal**, **macOS Terminal**, or **Linux shell**. 
+
 npm create vite@latest 
 - chose a name for my file
 - cd file name
@@ -73,13 +77,28 @@ npm create vite@latest
 - Notifications: UI feedback when deleting.
 
 --- 
-### how to clone 
-- co go vs code 
-- click on "clone a git repository"
-- past this link on the input bar that pops ub at the top (https://github.com/Bongeka-Bhungane/task2-links-vualt)
-- press enter
-- open the file
+## How to Clone the Repository (Any Editor/Terminal)
+
+- Open your terminal (Command Prompt, PowerShell, iTerm, or any terminal you prefer).
+
+1. Navigate to the folder where you want to save the project. For example:
+``` bash
+cd path/to/your/folder
+```
+
+2. Clone the repository using Git:
+``` bash
+git clone https://github.com/Bongeka-Bhungane/task2-links-vualt.git
+```
+
+3. Navigate into the cloned project folder:
+```bash
+cd task2-links-vualt
+```
+
+4. Open the folder in your code editor of choice (e.g., VS Code, Sublime Text, Atom, etc.) or start working directly in the terminal.
 
 ---
+
 ### figma link:
 - https://www.figma.com/design/KAA24s86XDIIjLSNbjzOCv/links-vault-moodboard?node-id=0-1&t=uZwh9eEGq66IVTuI-1

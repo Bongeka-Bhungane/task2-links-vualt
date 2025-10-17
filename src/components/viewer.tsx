@@ -93,7 +93,7 @@ export default function Viewer() {
               />
             </div>
           </div>
-        ))
+        )) 
       )}
 
       <div className="button-container">

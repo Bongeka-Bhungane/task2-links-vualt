@@ -13,13 +13,11 @@ export default function Search() {
   const [links, setLinks] = useState<CardItem[]>([]);
   const [filtered, setFiltered] = useState<CardItem[]>([]);
 
-  // Load saved links once
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("links") || "[]");
     setLinks(stored);
   }, []);
 
-  // Filter only when there is text
   useEffect(() => {
     if (query.trim() === "") {
       setFiltered([]);
@@ -35,40 +33,49 @@ export default function Search() {
         item.tag.toLowerCase().includes(lower)
     );
     setFiltered(results);
-  }, [query]);
+  }, [query, links]);
 
   return (
     <div className="search-wrapper">
+      {/* Search Bar */}
       <div className="search-input-container">
+        <FaSearch className="search-icon" />
         <input
           type="text"
-          placeholder="find link...."
+          placeholder="Find link..."
           className="search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <FaSearch className="search-icon" />
+        {query && (
+          <button className="clear-btn" onClick={() => setQuery("")}>
+            ✕
+          </button>
+        )}
       </div>
 
+      {/* Fullscreen Results */}
       {query.trim() !== "" && (
-        <div className="search-results-window">
+        <div className="fullscreen-results">
           {filtered.length === 0 ? (
-            <p>No matches found.</p>
+            <p className="no-results">No matches found.</p>
           ) : (
-            filtered.map((item, index) => (
-              <div key={index} className="search-result">
-                <h3>{item.name}</h3>
-                <a>
-                  <strong>URL:</strong> {item.url}
+            <div className="search-results">
+              {filtered.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="search-card"
+                >
+                  <h3 className="search-card-title">{item.name}</h3>
+                  <p className="search-card-url">{item.url}</p>
+                  <p className="search-card-desc">{item.description}</p>
+                  <span className="search-card-tag">#{item.tag}</span>
                 </a>
-                <p>
-                  <strong>Description:</strong> {item.description}
-                </p>
-                <p>
-                  <strong>Tag:</strong> {item.tag}
-                </p>
-              </div>
-            ))
+              ))}
+            </div>
           )}
         </div>
       )}

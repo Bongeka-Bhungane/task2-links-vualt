@@ -24,15 +24,33 @@ export default function Form({ initialData, onSave }: FormProps) {
     tag: "",
   });
 
+  const [urlError, setUrlError] = useState("");
+
   useEffect(() => {
     if (initialData) {
       setFormData(initialData);
     }
   }, [initialData]);
 
+  // ✅ URL validation function
+  const isValidURL = (url: string): boolean => {
+    const pattern = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(\/.*)?$/i;
+    return pattern.test(url);
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "url") {
+      if (value.trim() === "") {
+        setUrlError("");
+      } else if (!isValidURL(value)) {
+        setUrlError("Please enter a valid URL (e.g. https://example.com)");
+      } else {
+        setUrlError("");
+      }
+    }
   };
 
   const handleSave = () => {
@@ -40,6 +58,13 @@ export default function Form({ initialData, onSave }: FormProps) {
       alert("Please fill in all required fields!!");
       return;
     }
+
+    if (!isValidURL(formData.url)) {
+      setUrlError("Please enter a valid URL (e.g. https://example.com)");
+      return;
+    }
+
+    setUrlError("");
     onSave(formData);
 
     if (!initialData) {
@@ -50,6 +75,7 @@ export default function Form({ initialData, onSave }: FormProps) {
   return (
     <div className="form-container">
       <p>Enter link details</p>
+
       <label>Name:</label>
       <input
         type="text"
@@ -66,9 +92,10 @@ export default function Form({ initialData, onSave }: FormProps) {
         name="url"
         value={formData.url}
         onChange={handleChange}
-        placeholder="Enter the link url..."
+        placeholder="Enter the link URL..."
         required
       />
+      {urlError && <p className="error-message">{urlError}</p>}
 
       <label>Description:</label>
       <input
@@ -99,4 +126,3 @@ export default function Form({ initialData, onSave }: FormProps) {
     </div>
   );
 }
-
