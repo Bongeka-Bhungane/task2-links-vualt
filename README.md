@@ -80,9 +80,12 @@ cd task2-links-vualt
 4. Open the folder in your code editor of choice (e.g., VS Code, Sublime Text, Atom, etc.) or start working directly in the terminal.
 
 ```bash
-1. npm i
+npm i
+```
 
-2. npm run dev
+5. Run app
+```bash
+npm run dev
 ```
 
 ---
