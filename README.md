@@ -44,25 +44,6 @@ This project is intended as a proof-of-concept: localStorage is used so the app 
 Below are the commands I ran to create the project, install dependencies and run it locally.  
 Choose the template (JavaScript or TypeScript) you prefer.
 
-### Create the project (Vite)
-
-**TypeScript template (recommended):**
-
-```bash
-# create a new Vite + React + TypeScript project
-
-You can follow these steps using **any terminal** of your choice —  
-such as **Command Prompt**, **PowerShell**, **Windows Terminal**, **macOS Terminal**, or **Linux shell**. 
-
-npm create vite@latest 
-- chose a name for my file
-- cd file name
-- npm install 
-- npm run dev
-- npm install react-icons --save (react icons)
-- npm install --save react-modal (model package)
-```
-
 --- 
 ### 🧩 Evaluation mapping
 
@@ -97,6 +78,12 @@ cd task2-links-vualt
 ```
 
 4. Open the folder in your code editor of choice (e.g., VS Code, Sublime Text, Atom, etc.) or start working directly in the terminal.
+
+```bash
+1. npm i
+
+2. npm run dev
+```
 
 ---
 

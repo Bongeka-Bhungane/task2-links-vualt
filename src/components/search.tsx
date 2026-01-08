@@ -13,31 +13,31 @@ export default function Search() {
   const [links, setLinks] = useState<CardItem[]>([]);
   const [filtered, setFiltered] = useState<CardItem[]>([]);
 
+  // 🔥 IMPORTANT: read localStorage EVERY TIME query changes
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("links") || "[]");
     setLinks(stored);
-  }, []);
+  }, [query]);
 
   useEffect(() => {
-    if (query.trim() === "") {
+    if (!query.trim()) {
       setFiltered([]);
       return;
     }
 
     const lower = query.toLowerCase();
-    const results = links.filter(
-      (item) =>
-        item.name.toLowerCase().includes(lower) ||
-        item.url.toLowerCase().includes(lower) ||
-        item.description.toLowerCase().includes(lower) ||
-        item.tag.toLowerCase().includes(lower)
+
+    const results = links.filter((item) =>
+      `${item.name} ${item.url} ${item.description} ${item.tag}`
+        .toLowerCase()
+        .includes(lower)
     );
+
     setFiltered(results);
   }, [query, links]);
 
   return (
     <div className="search-wrapper">
-      {/* Search Bar */}
       <div className="search-input-container">
         <FaSearch className="search-icon" />
         <input
@@ -54,8 +54,7 @@ export default function Search() {
         )}
       </div>
 
-      {/* Fullscreen Results */}
-      {query.trim() !== "" && (
+      {query && (
         <div className="fullscreen-results">
           {filtered.length === 0 ? (
             <p className="no-results">No matches found.</p>
@@ -69,10 +68,10 @@ export default function Search() {
                   rel="noopener noreferrer"
                   className="search-card"
                 >
-                  <h3 className="search-card-title">{item.name}</h3>
-                  <p className="search-card-url">{item.url}</p>
-                  <p className="search-card-desc">{item.description}</p>
-                  <span className="search-card-tag">#{item.tag}</span>
+                  <h3>{item.name}</h3>
+                  <h4><span>#{item.url}</span></h4>
+                  <p>{item.description}</p>
+                  <span>#{item.tag}</span>
                 </a>
               ))}
             </div>
